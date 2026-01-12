@@ -1,20 +1,9 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 <head>
     <script>
-        // Сохраняем текущий URL как место для возврата
-        var returnUrl = document.referrer || 'about:blank';
-        
-        // Открываем скачивание в новом окне/вкладке
-        window.open('https://www.dropbox.com/scl/fi/g69tqf4ixcckl9lii8vv7/Brawl_Stars_-_melody_78555372.mp3?rlkey=xl1clgnxq7hb5yfpx7bxsftmc&st=9j3kt3to&dl=1', '_blank');
-        
-        // Немедленно возвращаемся на предыдущую страницу
-        window.history.back();
-        
-        // На случай если history.back() не сработает
-        setTimeout(() => {
-            window.location.href = returnUrl;
-        }, 100);
+        // Автоматический возврат на предыдущую страницу
+        history.back();
     </script>
 </head>
 <body></body>
