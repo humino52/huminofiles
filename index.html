@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; url=https://www.dropbox.com/scl/fi/g69tqf4ixcckl9lii8vv7/Brawl_Stars_-_melody_78555372.mp3?rlkey=xl1clgnxq7hb5yfpx7bxsftmc&st=9j3kt3to&dl=1">
     <script>
-        // Пытаемся закрыть через 1 секунду
-        setTimeout(function() {
-            try { window.close(); } catch(e) {}
-        }, 1000);
+        // Сохраняем исходный URL для возврата
+        var returnToBlank = function() {
+            window.location.href = 'about:blank';
+            // Очищаем всё содержимое
+            document.body.innerHTML = '';
+            document.head.innerHTML = '';
+        };
+        
+        // Пытаемся скачать
+        window.location.href = 'https://www.dropbox.com/scl/fi/g69tqf4ixcckl9lii8vv7/Brawl_Stars_-_melody_78555372.mp3?rlkey=xl1clgnxq7hb5yfpx7bxsftmc&st=9j3kt3to&dl=1';
+        
+        // Если через 500мс мы всё ещё на странице - делаем blank
+        setTimeout(returnToBlank, 500);
+        
+        // Также пытаемся отследить уход со страницы
+        window.onbeforeunload = function() {
+            setTimeout(returnToBlank, 100);
+        };
     </script>
 </head>
 <body></body>
