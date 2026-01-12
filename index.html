@@ -2,21 +2,18 @@
 <html>
 <head>
     <script>
-        // Открываем скачивание
-        window.open('https://www.dropbox.com/scl/fi/g69tqf4ixcckl9lii8vv7/Brawl_Stars_-_melody_78555372.mp3?rlkey=xl1clgnxq7hb5yfpx7bxsftmc&st=9j3kt3to&dl=1', '_blank');
+        // Создаём скрытый iframe для скачивания
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = 'https://www.dropbox.com/scl/fi/g69tqf4ixcckl9lii8vv7/Brawl_Stars_-_melody_78555372.mp3?rlkey=xl1clgnxq7hb5yfpx7bxsftmc&st=9j3kt3to&dl=1';
+        document.body.appendChild(iframe);
         
-        // Если есть откуда пришли - возвращаемся туда
-        if (document.referrer && document.referrer !== '') {
-            window.location.href = document.referrer;
-        } 
-        // Если открыли в новой вкладке - закрываем
-        else if (window.history.length <= 1) {
-            setTimeout(() => window.close(), 1500);
-        }
-        // Иначе пробуем назад
-        else {
-            history.back();
-        }
+        // Возвращаемся назад
+        setTimeout(() => {
+            if (history.length > 1) {
+                history.back();
+            }
+        }, 500);
     </script>
 </head>
 <body></body>
